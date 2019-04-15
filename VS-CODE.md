@@ -49,5 +49,10 @@ This extension allows matching brackets to be identified with colours. The user 
 ![Bracket Pair Colorizer](https://github.com/CoenraadS/Bracket-Pair-Colorizer-2/raw/master/images/example.png)
 
 
+#### 3. Code Spell Checker
+The goal of this spell checker is to help with catching common spelling errors while keeping the number of false positives low.
 
+Load a TypeScript, JavaScript, Text, etc.. file. Words not in the dictionary files will have a squiggly underline.
 
+##### Example
+![Code Spell Checker](https://raw.githubusercontent.com/Jason-Rev/vscode-spell-checker/master/client/images/example.gif)
