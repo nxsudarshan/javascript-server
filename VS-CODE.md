@@ -24,7 +24,7 @@ Working with Git and other SCM providers has never been easier. Review diffs, st
 
 ##### Extensible and customizable.
 Want even more features? Install extensions to add new languages, themes, debuggers, and to connect to additional services. Extensions run in separate processes, ensuring they won't slow down your editor.
-
+***
 
 
 ### Some VSCODE useful plugins
