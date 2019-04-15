@@ -4,3 +4,19 @@
 ### VSCODE FEATURES
 
 ##### These are the some features of VSCODE
+---
+
+#### 1. IntelliSense 
+
+##### Meet IntelliSense.
+Go beyond syntax highlighting and autocomplete with IntelliSense, which provides smart completions based on variable types, function definitions, and imported modules.
+
+#### 2. Debug
+
+##### Print statement debugging is a thing of the past.
+Debug code right from the editor. Launch or attach to your running apps and debug with break points, call stacks, and an interactive console.
+
+#### 3. Built in GIT
+
+##### Git commands built-in.
+Working with Git and other SCM providers has never been easier. Review diffs, stage files, and make commits right from the editor. Push and pull from any hosted SCM service.
