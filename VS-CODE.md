@@ -27,18 +27,27 @@ Want even more features? Install extensions to add new languages, themes, debugg
 ***
 
 
-### Some VSCODE useful plugins
----
+### VSCODE useful plugins
+
 
 #### 1. Auto Close Tag
 Automatically add HTML/XML close tag, same as Visual Studio IDE or Sublime Text does.
 
-###### features
+###### Features
 * Automatically add closing tag when you type in the closing bracket of the opening tag
 * After closing tag is inserted, the cursor is between the opening and closing tag
 * Set the tag list that would not be auto closed
 * Automatically close self-closing tag
 * Support auto close tag as Sublime Text 3
 * Use Keyboard Shortcut or Command Palette to add close tag manually
+
+
+#### 2. Bracket Pair Colorizer 
+This extension allows matching brackets to be identified with colours. The user can define which tokens to match, and which colours to use.
+
+##### Screenshot
+![Bracket Pair Colorizer](https://github.com/CoenraadS/Bracket-Pair-Colorizer-2/raw/master/images/example.png)
+
+
 
 
