@@ -1,5 +1,4 @@
-# VSCODE
+# VSCODE - IDE
 ***
 
-## VSCODE FEATURES
-***
+### VSCODE FEATURES
