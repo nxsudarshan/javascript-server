@@ -117,7 +117,7 @@ While GitLens is powerful and feature rich, it is also highly customizable to me
 
 
 #### 8. JS Refactor
->   JS Refactor is the Javascript automated refactoring tool for Visual Studio Code, built to smooth and streamline your development experience. It provides an extensive list of automated actions including the commonly needed: Extract Method, Extract Variable, Inline Variable, and an alias for the built-in VS Code rename. JS Refactor also supports many common snippets and associated actions for wrapping existing code in common block expressions.
+JS Refactor is the Javascript automated refactoring tool for Visual Studio Code, built to smooth and streamline your development experience. It provides an extensive list of automated actions including the commonly needed: Extract Method, Extract Variable, Inline Variable, and an alias for the built-in VS Code rename. JS Refactor also supports many common snippets and associated actions for wrapping existing code in common block expressions.
 
 ##### Supported Language Files
 Javascript/ECMAScript (.js)
