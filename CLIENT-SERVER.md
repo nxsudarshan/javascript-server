@@ -28,5 +28,5 @@ In addition to the client and the server, we also need to say hello to:
 #
 
 ## So what happens, exactly?
-### Example : When we are requesting a web service from web server then how server will served our request ?
+#### Example : When we are requesting a web service from web server then how server will served our request ?
 
