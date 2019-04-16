@@ -10,14 +10,18 @@ root = true
 
 [*]
 
-# Set tab or space in the source code
+# Set tab or space in the source code.
 
 indent_style = space
 
-# Set size of space for indent
+# Set size of space for indent.
 
 indent_size = 2
 
+# Set charset for encode of langauge.
+# Javascript uses utf-8 charset.
+
+charset = utf-8
 
 
 
