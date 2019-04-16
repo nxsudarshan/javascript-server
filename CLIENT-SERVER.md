@@ -13,7 +13,7 @@
 
 For now, let's imagine that the web is a road. On one end of the road is the client, which is like your house. On the other end of the road is the server, which is a shop you want to buy something from.
 
-![client-server real life example](https://mdn.mozillademos.org/files/9749/road.jpg =300X300)
+![client-server real life example](https://mdn.mozillademos.org/files/9749/road.jpg)
 
 In addition to the client and the server, we also need to say hello to:
 
