@@ -10,4 +10,10 @@ root = true
 
 [*]
 
+# Set tab or space in the source code
+
+indent_style = space
+
+
+
 
