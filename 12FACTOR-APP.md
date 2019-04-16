@@ -21,7 +21,17 @@
 
   Don’t store config as constants in code. Instead, design the app to read its config from the environment.
 
-  **4.  **
+  **4.  Backing Services**
+
+  Treat back-end services as attached resources to be accessed with a URL or other locator stored in config.
+
+  **5.  Build, Release, Run**
+
+  Strictly separate build and run stages.
+
+  **6.  Processes**
+
+  Execute the app as one or more stateless processes. Data that must be persistent should be stored in a stateful backing service.
 
 
 
