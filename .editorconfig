@@ -4,3 +4,10 @@
 # This is special property that should be specified at the top of file.
 
 root = true
+
+# [] this is used for section or section name.
+# We use [*] for each section.
+
+[*]
+
+
