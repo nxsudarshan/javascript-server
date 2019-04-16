@@ -33,6 +33,28 @@
 
   Execute the app as one or more stateless processes. Data that must be persistent should be stored in a stateful backing service.
 
+  **7.  Prot Binding**
+
+  Use port binding to export services.
+
+  **8.  Concurrency**
+
+  Scale out apps horizontally, not vertically.
+
+  **9.  Disposability**
+
+  Use fast startups and graceful shutdowns to maximize robustness.
+
+  **10. Parity**
+
+  Facilitate continuous deployment by ensuring that development, staging, and production environments are as similar as possible.
+
+  **11. Logs**
+
+  Treat logs as event streams. Logs should not be concerned with routing or storing the app’s output.
+
+
+
 
 
 
