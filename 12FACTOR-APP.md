@@ -58,6 +58,7 @@
   Run admin tasks as one-off processes from a machine in the production environment that’s running the latest production code.
 
 
+
   # The 12-factor basics
 
   When a developer uses the twelve-factor app DevOps methodology, applications will have certain characteristics in common that address a variety of scenarios as an app scales. For example, the methodology recommends that apps use declarative formats for setup automation to assist new developers that enter the project at a later time.
