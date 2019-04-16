@@ -9,4 +9,12 @@
 
   #### 12 factors developers should think about when building native cloud apps.
 
+  **1.  Code base**
+
+  Use one codebase, even when building cross-platform apps. Address the needs of specific devices with version control.
+
+  **2.  Dependencies**
+
+  Explicitly declare and isolate all dependencies.
+
 
