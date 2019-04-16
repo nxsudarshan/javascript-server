@@ -1,2 +1,6 @@
 
 # These are the standards for Javascript
+
+# This is special property that should be specified at the top of file.
+
+root = true
