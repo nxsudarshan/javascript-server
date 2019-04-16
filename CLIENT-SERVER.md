@@ -28,5 +28,11 @@ In addition to the client and the server, we also need to say hello to:
 #
 
 ## So what happens, exactly?
-#### Example : When we are requesting a web service from web server then how server will served our request ?
+**Example : When we are requesting a web service from web server then how server will served our request ?**
+When you type a web address into your browser (for our analogy that's like walking to the shop):
+
+1.  The browser goes to the DNS server, and finds the real address of the server that the website lives on (you find the address of the shop).
+2.  The browser sends an HTTP request message to the server, asking it to send a copy of the website to the client (you go to the shop and order your goods). This message, and all other data sent between the client and the server, is sent across your internet connection using TCP/IP.
+3.  If the server approves the client's request, the server sends the client a "200 OK" message, which means "Of course you can look at that website! Here it is", and then starts sending the website's files to the browser as a series of small chunks called data packets (the shop gives you your goods, and you bring them back to your house).
+4.  The browser assembles the small chunks into a complete website and displays it to you (the goods arrive at your door — new shiny stuff, awesome!).
 
