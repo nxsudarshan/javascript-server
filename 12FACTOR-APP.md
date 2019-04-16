@@ -17,4 +17,12 @@
 
   Explicitly declare and isolate all dependencies.
 
+  **3.  Configuration**
+
+  Don’t store config as constants in code. Instead, design the app to read its config from the environment.
+
+  **4.  **
+
+
+
 
