@@ -53,6 +53,19 @@
 
   Treat logs as event streams. Logs should not be concerned with routing or storing the app’s output.
 
+  **12. Admin Process**
+
+  Run admin tasks as one-off processes from a machine in the production environment that’s running the latest production code.
+
+
+  # The 12-factor basics
+
+  When a developer uses the twelve-factor app DevOps methodology, applications will have certain characteristics in common that address a variety of scenarios as an app scales. For example, the methodology recommends that apps use declarative formats for setup automation to assist new developers that enter the project at a later time.
+
+  Apps should also be written to have maximum portability between execution environments. and scale easily without significant reworking. Twelve-factor apps can be written in any programming language and in combination with any back-end service, such as a database.
+
+  The goal of the twelve-factor framework is to help developers build apps that use an architecture that ensures speed, reliability, agility, portability and ultimately results in a robust and reliable application.
+
 
 
 
