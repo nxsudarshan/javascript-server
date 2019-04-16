@@ -23,5 +23,11 @@ indent_size = 2
 
 charset = utf-8
 
+# Removing white space befor each new line.
+
+trim_trailing_whitespace = true
+
+
+
 
 
