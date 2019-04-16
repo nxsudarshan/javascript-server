@@ -25,10 +25,10 @@ In addition to the client and the server, we also need to say hello to:
   * **Code files:** Websites are built primarily from HTML, CSS, and JavaScript, though you'll meet other technologies a bit later.
   * **Assets:** This is a collective name for all the other stuff that makes up a website, such as images, music, video, Word documents, and PDFs.
 
-#
 
 ## So what happens, exactly?
-**Example : When we are requesting a web service from web server then how server will served our request ?**
+
+### **Example : When we are requesting a web service from web server then how server will served our request ?**
 When you type a web address into your browser (for our analogy that's like walking to the shop):
 
 1.  The browser goes to the DNS server, and finds the real address of the server that the website lives on (you find the address of the shop).
