@@ -1,37 +1,35 @@
-let arg1=process.argv[2];
-myFunction(arg1);
+let noOfRows=process.argv[2];
+myFunction(noOfRows);
 function myFunction()
 {
-   if(arg1>=2 && arg1<=10)
+    if(noOfRows>=2 && noOfRows<=10)
    {
        let i=0;
-       let space=arg1-1;
+       let space=noOfRows-1;
        let k,j,l,m,n;
-       for(;i<arg1;i++)
+       for(;i<noOfRows;i++)
        {
-            for(k=i;k<arg1;k++)
+            for(k=i;k<noOfRows;k++)
             {
                 process.stdout.write(" ");
             }
             space--;
             for(j=1;j<=(2*i-1);j++)
             {
-               process.stdout.write("*")
+                process.stdout.write("*")
             }
             console.log(" ")
         }
         space=1;
-        for(l=1;l<=arg1-1;l++)
+        for(l=1;l<=noOfRows-1;l++)
         {
-            for(m=1;m<=space;m++){
-                
+            for(m=1;m<=space;m++){ 
                 process.stdout.write(" ");
             }
             space++;
-            for(n=1;n<=2*(arg1-l)-1;n++)
+            for(n=1;n<=2*(noOfRows-l)-1;n++)
             {
                 process.stdout.write("*");
-
             }
             console.log(" ");
         }
