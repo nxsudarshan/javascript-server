@@ -29,9 +29,13 @@ function validateUsers(users) {
 
   users.forEach((value) => {
     let { traineeEmail, reviewerEmail } = value;
-    return validateEmail(traineeEmail) ? (validUsers.count++ , validUsers.users.push(traineeEmail)) : (invalidUsers.count++ , invalidUsers.users.push(traineeEmail))
-      &&
-      validateEmail(reviewerEmail) ? (validUsers.count++ , validUsers.users.push(reviewerEmail)) : (invalidUsers.count++ , invalidUsers.users.push(reviewerEmail));
+    return validateEmail(traineeEmail) ?
+      (validUsers.count++ , validUsers.users.push(traineeEmail)) :
+      (invalidUsers.count++ , invalidUsers.users.push(traineeEmail))
+        &&
+        validateEmail(reviewerEmail) ?
+        (validUsers.count++ , validUsers.users.push(reviewerEmail)) :
+        (invalidUsers.count++ , invalidUsers.users.push(reviewerEmail));
   })
   getResult(validUsers, invalidUsers);
 }
