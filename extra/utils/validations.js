@@ -2,6 +2,8 @@ let validUser = 0;
 let invalidUser = 0;
 let validEmail = [];
 let invalidEmail = [];
+let expression = "/^\w+([/.-]?\w+)*@\w+([/.-]?\w+)*(\.\w[2,4])+$/";
+let domain_name = "@successive.tech$";
 let users = [{
   traineeEmail: 'trainee1@successive.tech',
   reviewerEmail: 'reviewer1@1successive.tech'
@@ -11,26 +13,38 @@ let users = [{
   reviewerEmail: 'reviewer1-s@successive.tech'
 }
 ]
-validateUsers(users)
+
 function validateUsers(users) {
   users.forEach((value) => {
-    validateEmail(value.traineeEmail)
-    validateEmail(value.reviewerEmail)
+    let {traineeEmail,reviewerEmail}=value;
+    if(validateEmail(traineeEmail))
+    {
+      validUser++;
+      validEmail.push(traineeEmail);
+    }
+    else
+    {
+      invalidUser++;
+      invalidEmail.push(traineeEmail);
+    }
+    if(validateEmail(reviewerEmail)){
+      validUser++;
+      validEmail.push(reviewerEmail);
+    }
+    else
+    {
+      invalidUser++;
+      invalidEmail.push(reviewerEmail);
+    }
   })
   getResult();
 }
 
 function validateEmail(value) {
-  let expression = "/^\w+([/.-]?\w+)*@\w+([/.-]?\w+)*(\.\w[2,4])+$/";
-  let domain_name = "@successive.tech$";
   if (value.match(expression) || value.match(domain_name)) {
-    validUser++;
-    validEmail.push(value);
     return true;
   }
   else {
-    invalidUser++;
-    invalidEmail.push(value);
     return false;
   }
 }
@@ -47,5 +61,7 @@ function getResult() {
     invalidUser = 0;
   }
 }
+
+validateUsers(users);
 
 
