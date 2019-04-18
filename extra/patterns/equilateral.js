@@ -1,6 +1,6 @@
 let noOfRows = process.argv[2];
-myFunction(noOfRows);
-function myFunction()
+equilateral(noOfRows);
+function equilateral()
 {
    if(noOfRows >= 2 && noOfRows <= 10)
    {
