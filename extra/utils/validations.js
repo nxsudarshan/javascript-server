@@ -11,6 +11,14 @@ let users = [{
 {
   traineeEmail: 'trainee1.gh.sh#successive.tech',
   reviewerEmail: 'reviewer1-s@successive.tech'
+},
+{
+  traineeEmail: 'trainee112#successive.tech',
+  reviewerEmail: 'reviewer2@successive.tech'
+},
+{
+  traineeEmail: '123@successive$.tech',
+  reviewerEmail: 'reviewer9successive.tech'
 }
 ]
 
