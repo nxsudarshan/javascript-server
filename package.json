@@ -1,0 +1,24 @@
+{
+  "name": "javascript-server",
+  "version": "0.0.1",
+  "description": "for training",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/sgonewar/javascript-server.git"
+  },
+  "author": "Sudarshan",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/sgonewar/javascript-server/issues"
+  },
+  "homepage": "https://github.com/sgonewar/javascript-server#readme",
+  "devDependencies": {
+    "@babel/cli": "^7.4.3",
+    "@babel/core": "^7.4.3",
+    "@babel/preset-env": "^7.4.3"
+  }
+}
