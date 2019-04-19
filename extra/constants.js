@@ -13,7 +13,7 @@ export const ROLE_HEAD_TRAINER = 'head-trainer';
 
 export const users = [{
   traineeEmail: 'trainee1@successive.tech',
-  reviewerEmail: 'reviewer1@1successive.tech'
+  reviewerEmail: 'reviewer1@successive.tech'
 },
 {
   traineeEmail: 'trainee1.gh.sh#successive.tech',
