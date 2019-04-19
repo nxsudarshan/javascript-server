@@ -1,4 +1,4 @@
-export function equilateral(noOfRows)
+export default function equilateral(noOfRows)
 {
    if(noOfRows >= 2 && noOfRows <= 10)
    {
