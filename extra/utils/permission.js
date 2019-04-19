@@ -6,7 +6,7 @@ let permission = {
     delete: [],
   }
 }
-function hasPermission(module, role, permissionType) {
+export function hasPermission(module, role, permissionType) {
 
   for (let result1 in permission[module]) {
     for (let result2 in permission[module][result1]) {
@@ -15,6 +15,6 @@ function hasPermission(module, role, permissionType) {
     }
   }
 }
-console.log(hasPermission('getUsers', 'head-trainer', 'all'));
+// console.log(hasPermission('getUsers', 'head-trainer', 'all'));
 
 

@@ -1,9 +1,9 @@
-let noOfRows = process.argv[2];
-equilateral(noOfRows);
-function equilateral()
+export function equilateral(noOfRows)
 {
    if(noOfRows >= 2 && noOfRows <= 10)
    {
+    console.log("Equilateral");
+    console.log(" ");
        let i = 0;
        let space = noOfRows - 1;
        let k,j,l,m,n;
