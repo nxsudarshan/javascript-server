@@ -1,5 +1,4 @@
-export const expression = "/^\w+([/.-]?\w+)*@\w+([/.-]?\w+)*(\.\w[2,4])+$/";
-export const domain_name = "@successive.tech$";
+
 
 export const PERMISSION_READ = 'read';
 export const PERMISSION_WRITE = 'write';
