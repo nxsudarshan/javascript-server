@@ -1,4 +1,4 @@
-let expression = "/^\w+([/.-]?\w+)*@\w+([/.-]?\w+)*(\.\w[2,4])+$/";
+const expression = "/^\w+([/.-]?\w+)*@\w+([/.-]?\w+)*(\.\w[2,4])+$/";
 let domain_name = "@successive.tech$";
 let users = [{
   traineeEmail: 'trainee1@successive.tech',
