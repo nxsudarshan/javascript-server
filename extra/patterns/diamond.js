@@ -1,4 +1,4 @@
-export function diamond(noOfRows) {
+export default function diamond(noOfRows) {
   if (noOfRows >= 2 && noOfRows <= 10) {
     console.log("Diamond");
     console.log(" ");
