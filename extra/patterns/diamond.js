@@ -1,5 +1,5 @@
 export default function diamond(noOfRows) {
-  if (noOfRows >= 2 && noOfRows <= 10) {
+  if ((noOfRows >= 2 && noOfRows <= 10) && noOfRows != 0) {
     console.log("Diamond");
     console.log(" ");
     let i = 0;
@@ -28,7 +28,7 @@ export default function diamond(noOfRows) {
     }
   }
   else {
-    console.log("Arguments must be in range 2 to 10  only");
+    console.log("Arguments must be in range 2 to 10  or Argument Required");
   }
 }
 

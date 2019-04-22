@@ -6,7 +6,7 @@ import { users } from './constants.js';
 const noOfRows = process.argv[2];
 console.log("------------------------------")
 print1.diamond(noOfRows);
-console.log(" ")
+console.log("------------------------------")
 print1.equilateral(noOfRows);
 console.log("------------------------------")
 
