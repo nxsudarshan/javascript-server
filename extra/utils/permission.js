@@ -1,20 +1,26 @@
-let permission = {
-  getUsers: {
-    all: ['head-trainer'],
-    read: ['trainee', 'trainer'],
-    write: ['trainer'],
-    delete: [],
-  }
-}
-function hasPermission(module, role, permissionType) {
+import {
+  MODULE_NAME,
+  PERMISSION_ALL,
+  PERMISSION_DELETE,
+  PERMISSION_READ,
+  PERMISSION_WRITE,
+  ROLE_HEAD_TRAINER,
+  ROLE_TRAINEE,
+  ROLE_TRAINER
+} from './../constants.js';
 
-  for (let result1 in permission[module]) {
-    for (let result2 in permission[module][result1]) {
-      return permission[module][permissionType][result2] == role ||
-      permission[module]['all'] == role;
-    }
+
+let permission = {
+  [MODULE_NAME]: {
+    [PERMISSION_ALL]: [ROLE_HEAD_TRAINER],
+    [PERMISSION_READ]: [ROLE_TRAINER, ROLE_TRAINEE],
+    [PERMISSION_WRITE]: [ROLE_TRAINER],
+    [PERMISSION_DELETE]: [],
   }
 }
-console.log(hasPermission('getUsers', 'head-trainer', 'all'));
+export function hasPermission(module, role, permissionType) {
+  return (permission[module] && permission[module][permissionType].indexOf(role) !== -1
+    || permission[module][PERMISSION_ALL].indexOf(role) !== -1)
+}
 
 

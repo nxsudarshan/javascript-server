@@ -1,23 +1,7 @@
-let expression = "/^\w+([/.-]?\w+)*@\w+([/.-]?\w+)*(\.\w[2,4])+$/";
-let domain_name = "@successive.tech$";
-let users = [{
-  traineeEmail: 'trainee1@successive.tech',
-  reviewerEmail: 'reviewer1@1successive.tech'
-},
-{
-  traineeEmail: 'trainee1.gh.sh#successive.tech',
-  reviewerEmail: 'reviewer1-s@successive.tech'
-},
-{
-  traineeEmail: 'trainee112#successive.tech',
-  reviewerEmail: 'reviewer2@successive.tech'
-},
-{
-  traineeEmail: '123@successive$.tech',
-  reviewerEmail: 'reviewer9successive.tech'
-}
-]
-function validateUsers(users) {
+import * as checkHelper from './helpers.js';
+
+
+export function validateUsers(users) {
   const invalidUsers = {
     count: 0,
     users: [],
@@ -29,31 +13,26 @@ function validateUsers(users) {
 
   users.forEach((value) => {
     let { traineeEmail, reviewerEmail } = value;
-    return validateEmail(traineeEmail) ?
-      (validUsers.count++ , validUsers.users.push(traineeEmail)) :
-      (invalidUsers.count++ , invalidUsers.users.push(traineeEmail))
-        &&
-        validateEmail(reviewerEmail) ?
-        (validUsers.count++ , validUsers.users.push(reviewerEmail)) :
-        (invalidUsers.count++ , invalidUsers.users.push(reviewerEmail));
+    return (checkHelper.validateEmail(traineeEmail) && checkHelper.validateEmail(reviewerEmail)) ?
+      (validUsers.count++ ,
+        (validUsers.users.push(traineeEmail),
+          validUsers.users.push(reviewerEmail) + validUsers.users.push("\n"))) :
+      (invalidUsers.count++ ,
+        (invalidUsers.users.push(traineeEmail),
+          invalidUsers.users.push(reviewerEmail) + invalidUsers.users.push("\n")));
   })
   getResult(validUsers, invalidUsers);
-}
-
-function validateEmail(value) {
-  return (value.match(expression) || value.match(domain_name));
 }
 
 function getResult(validUsers, invalidUsers) {
   return (validUsers.count > 0 ?
     (console.log("Valid Count :" + validUsers.count),
-      console.log(validUsers.users.toString())) :
-      console.log("email id not founds"))
+      console.log("Valid User : " + validUsers.users.toString())) :
+    console.log("email id not founds"))
     || (invalidUsers.count > 0 ?
       (console.log("invalid Count :" + invalidUsers.count),
-        console.log(invalidUsers.users.toString())) :
-        console.log("email id not founds"));
+        console.log("Invalid Users : " + invalidUsers.users.toString())) :
+      console.log("email id not founds"));
 }
-validateUsers(users);
 
 

@@ -1,0 +1,29 @@
+{
+  "name": "javascript-server",
+  "version": "0.0.1",
+  "description": "for training",
+  "main": "index.js",
+  "scripts": {
+    "test1": "npx babel-node extra",
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "extra:ts": "tsc-watch --project . --onSuccess \"npm run nodemon\"",
+    "nodemon": "nodemon ./dist/index.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://githgitub.com/sgonewar/javascript-server.git"
+  },
+  "author": "Sudarshan",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/sgonewar/javascript-server/issues"
+  },
+  "homepage": "https://github.com/sgonewar/javascript-server#readme",
+  "devDependencies": {
+    "@babel/core": "^7.4.3",
+    "@babel/node": "^7.2.2",
+    "@babel/preset-env": "^7.4.3",
+    "tsc-watch": "^2.1.2",
+    "typescript": "^3.4.4"
+  }
+}
