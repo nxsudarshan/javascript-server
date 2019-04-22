@@ -16,7 +16,7 @@ export const users = [{
   reviewerEmail: 'reviewer1@successive.tech'
 },
 {
-  traineeEmail: 'trainee1.gh.sh#successive.tech',
+  traineeEmail: 'trainee1.gh.sh@successive.tech',
   reviewerEmail: 'reviewer1-s@successive.tech'
 },
 {
