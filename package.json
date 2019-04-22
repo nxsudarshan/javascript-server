@@ -5,12 +5,16 @@
   "main": "index.js",
   "scripts": {
     "test1": "npx babel-node extra",
+<<<<<<< HEAD
+=======
+    "test": "echo \"Error: no test specified\" && exit 1",
+>>>>>>> develop
     "extra:ts": "tsc-watch --project . --onSuccess \"npm run nodemon\"",
     "nodemon": "nodemon ./dist/index.js"
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/sgonewar/javascript-server.git"
+    "url": "git+https://githgitub.com/sgonewar/javascript-server.git"
   },
   "author": "Sudarshan",
   "license": "ISC",
@@ -24,6 +28,7 @@
     "@types/node": "^11.13.6",
     "inquirer": "^6.3.1",
     "nodemon": "^1.18.11",
+    "@babel/preset-env": "^7.4.3",
     "tsc-watch": "^2.1.2",
     "typescript": "^3.4.4"
   }
