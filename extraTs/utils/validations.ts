@@ -1,3 +1,4 @@
+import { users } from './../constants';
 import * as checkHelper from './helpers.js';
 
 export function validateUsers(users) {
@@ -12,13 +13,10 @@ export function validateUsers(users) {
 
   users.forEach((value) => {
     let { traineeEmail, reviewerEmail } = value;
-    return checkHelper.validateEmail(traineeEmail) ?
-      (validUsers.count++ , validUsers.users.push(traineeEmail)) :
-      (invalidUsers.count++ , invalidUsers.users.push(traineeEmail))
-        &&
-        checkHelper.validateEmail(reviewerEmail) ?
-        (validUsers.count++ , validUsers.users.push(reviewerEmail)) :
-        (invalidUsers.count++ , invalidUsers.users.push(reviewerEmail));
+    return (
+      checkHelper.validateEmail(traineeEmail) && checkHelper.validateEmail(reviewerEmail)) ?
+      (validUsers.count++ , (validUsers.users.push(traineeEmail), validUsers.users.push(reviewerEmail+"\n"))) :
+      (invalidUsers.count++ , (invalidUsers.users.push(traineeEmail), invalidUsers.users.push(reviewerEmail+"\n")));
   })
   getResult(validUsers, invalidUsers);
 }
@@ -26,14 +24,21 @@ export function validateUsers(users) {
 
 
 function getResult(validUsers, invalidUsers) {
-  return (validUsers.count > 0 ?
-    (console.log("Valid Count :" + validUsers.count),
-      console.log(validUsers.users.toString())) :
-      console.log("email id not founds"))
-    || (invalidUsers.count > 0 ?
-      (console.log("invalid Count :" + invalidUsers.count),
-        console.log(invalidUsers.users.toString())) :
-        console.log("email id not founds"));
+  let notFound = "Email id not Found";
+  return (
+    validUsers.count > 0 ?
+      (
+        console.log("valid count : " + validUsers.count),
+        console.log("Valid Users : " + validUsers.users)
+      ) :
+      notFound) ||
+    (invalidUsers.count > 0 ?
+      (
+        console.log("valid count : " + invalidUsers.count),
+        console.log("Valid Users : " + invalidUsers.users)
+      ) :
+      console.log("Email id not found")
+    );
 }
 
 

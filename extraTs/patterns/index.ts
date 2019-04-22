@@ -1,9 +1,9 @@
-import * as check from './diamond.js';
-import * as equli from './equilateral.js';
+import * as check from './diamond';
+import * as equli from './equilateral';
 
-export function diamond(noOfRows) {
+export function diamond(noOfRows:number) {
   check.default(noOfRows)
 }
-export function equilateral(noOfRows){
+export function equilateral(noOfRows:number){
  equli.default(noOfRows)
 }

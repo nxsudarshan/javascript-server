@@ -7,7 +7,7 @@ import {
   ROLE_HEAD_TRAINER,
   ROLE_TRAINEE,
   ROLE_TRAINER
-} from './../constants.js';
+} from '../constants.js';
 
 
 let permission = {

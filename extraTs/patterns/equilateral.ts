@@ -1,4 +1,4 @@
-export default function equilateral(noOfRows) {
+export default function equilateral(noOfRows:number) {
   if (noOfRows >= 2 && noOfRows <= 10 && noOfRows != 0) {
     console.log("Equilateral");
     console.log(" ");
