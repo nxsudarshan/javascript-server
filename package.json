@@ -5,10 +5,7 @@
   "main": "index.js",
   "scripts": {
     "test1": "npx babel-node extra",
-<<<<<<< HEAD
-=======
     "test": "echo \"Error: no test specified\" && exit 1",
->>>>>>> develop
     "extra:ts": "tsc-watch --project . --onSuccess \"npm run nodemon\"",
     "nodemon": "nodemon ./dist/index.js"
   },
