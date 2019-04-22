@@ -1,4 +1,6 @@
-export default function equilateral(noOfRows:number) {
+import { IPatterns } from './../interfaces';
+let equilateral: IPatterns
+export default equilateral = (noOfRows) => {
   if (noOfRows >= 2 && noOfRows <= 10 && noOfRows != 0) {
     console.log("Equilateral");
     console.log(" ");

@@ -1,5 +1,5 @@
-import * as check from './permission.js';
-import * as checkValidation from './validations.js';
+import * as check from './permission';
+import * as checkValidation from './validations';
 
 import {
   MODULE_NAME,
@@ -13,9 +13,9 @@ import {
 } from '../constants.js';
 let string ="Permission Grant : ";
 export function checkPermission(){
-  console.log(string+check.hasPermission(MODULE_NAME,ROLE_HEAD_TRAINER,PERMISSION_ALL));
+  console.log(string+check.default(MODULE_NAME,ROLE_HEAD_TRAINER,PERMISSION_ALL));
 }
 
 export function checkEmailValidate(users){
-checkValidation.validateUsers(users);
+checkValidation.default(users);
 }

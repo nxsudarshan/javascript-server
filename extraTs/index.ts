@@ -1,9 +1,8 @@
 import * as print1 from './patterns/index';
 import * as print2 from './utils/index';
-import { users } from './constants.js';
-import * as input from 'inquirer';
+import { users } from './constants';
 
-const noOfRows:number=4;
+const noOfRows: number = 4;
 console.log("------------------------------")
 print1.diamond(noOfRows);
 console.log("------------------------------")

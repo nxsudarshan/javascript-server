@@ -1,7 +1,8 @@
+import { IUser } from './../interfaces';
 import { users } from './../constants';
-import * as checkHelper from './helpers.js';
+import * as checkHelper from './helpers';
 
-export function validateUsers(users) {
+export default (users: IUser[])=> {
   const invalidUsers = {
     count: 0,
     users: [],
@@ -11,15 +12,16 @@ export function validateUsers(users) {
     users: [],
   }
 
+
   users.forEach((value) => {
     let { traineeEmail, reviewerEmail } = value;
     return (
       checkHelper.validateEmail(traineeEmail) && checkHelper.validateEmail(reviewerEmail)) ?
-      (validUsers.count++ , (validUsers.users.push(traineeEmail), validUsers.users.push(reviewerEmail+"\n"))) :
-      (invalidUsers.count++ , (invalidUsers.users.push(traineeEmail), invalidUsers.users.push(reviewerEmail+"\n")));
+      (validUsers.count++ , (validUsers.users.push(traineeEmail), validUsers.users.push(reviewerEmail + "\n"))) :
+      (invalidUsers.count++ , (invalidUsers.users.push(traineeEmail), invalidUsers.users.push(reviewerEmail + "\n")));
   })
   getResult(validUsers, invalidUsers);
-}
+};
 
 
 

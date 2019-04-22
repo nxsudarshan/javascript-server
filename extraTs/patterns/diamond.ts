@@ -1,4 +1,7 @@
-export default function diamond(noOfRows:number) {
+import { IPatterns } from '../interfaces'
+let diamond: IPatterns;
+
+export default diamond = (noOfRows) => {
   if ((noOfRows >= 2 && noOfRows <= 10) && noOfRows != 0) {
     console.log("Diamond");
     console.log(" ");

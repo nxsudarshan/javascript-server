@@ -1,3 +1,4 @@
+import { IPermission } from './../interfaces';
 import {
   MODULE_NAME,
   PERMISSION_ALL,
@@ -7,8 +8,9 @@ import {
   ROLE_HEAD_TRAINER,
   ROLE_TRAINEE,
   ROLE_TRAINER
-} from '../constants.js';
+} from '../constants';
 
+let hasPermission: IPermission
 
 let permission = {
   [MODULE_NAME]: {
@@ -18,7 +20,7 @@ let permission = {
     [PERMISSION_DELETE]: [],
   }
 }
-export function hasPermission(module, role, permissionType) {
+export default hasPermission = (module, role, permissionType) => {
   return (permission[module] && permission[module][permissionType].indexOf(role) !== -1
     || permission[module][PERMISSION_ALL].indexOf(role) !== -1)
 }
