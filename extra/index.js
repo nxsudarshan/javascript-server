@@ -1,5 +1,5 @@
-import * as print1 from './patterns/index';
-import * as print2 from './utils/index';
+import * as print1 from './patterns';
+import * as print2 from './utils';
 import { users } from './constants.js';
 
 

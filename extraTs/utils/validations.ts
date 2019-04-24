@@ -1,5 +1,5 @@
-import { IUser } from './../interfaces';
-import { users } from './../constants';
+import { IUser } from '../interfaces';
+import { users } from '../constants';
 import * as checkHelper from './helpers';
 
 export default (users: IUser[])=> {

@@ -1,5 +1,4 @@
 
-
 export const PERMISSION_READ = 'read';
 export const PERMISSION_WRITE = 'write';
 export const PERMISSION_DELETE = 'delete';

@@ -10,7 +10,7 @@ import {
   ROLE_HEAD_TRAINER,
   ROLE_TRAINEE,
   ROLE_TRAINER
-} from '../constants.js';
+} from '../constants';
 let string ="Permission Grant : ";
 export function checkPermission(){
   console.log(string+check.default(MODULE_NAME,ROLE_HEAD_TRAINER,PERMISSION_ALL));

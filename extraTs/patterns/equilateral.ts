@@ -1,4 +1,4 @@
-import { IPatterns } from './../interfaces';
+import { IPatterns } from '../interfaces'
 let equilateral: IPatterns
 export default equilateral = (noOfRows) => {
   if (noOfRows >= 2 && noOfRows <= 10 && noOfRows != 0) {

@@ -1,4 +1,4 @@
-import { IPermission } from './../interfaces';
+import { IPermission } from '../interfaces';
 import {
   MODULE_NAME,
   PERMISSION_ALL,
@@ -8,7 +8,7 @@ import {
   ROLE_HEAD_TRAINER,
   ROLE_TRAINEE,
   ROLE_TRAINER
-} from '../constants';
+} from '../constants'
 
 let hasPermission: IPermission
 
