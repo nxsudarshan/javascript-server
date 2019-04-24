@@ -12,7 +12,6 @@ print1.equilateral(noOfRows);
 
 console.log("------------------------------");
 
-
 console.log("Check Permission");
 print2.checkPermission();
 
