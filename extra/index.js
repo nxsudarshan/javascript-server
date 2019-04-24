@@ -3,7 +3,7 @@ import * as print2 from './utils';
 import { users } from './constants.js';
 
 
-const noOfRows = process.argv[2];
+const noOfRows = 5;
 console.log("------------------------------")
 print1.diamond(noOfRows);
 console.log("------------------------------")
