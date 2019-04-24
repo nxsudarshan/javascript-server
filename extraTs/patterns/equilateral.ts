@@ -6,8 +6,7 @@ export default equilateral = (noOfRows) => {
     console.log(" ");
     let i = 0;
     let space = noOfRows - 1;
-    let k: number;
-    let j: number;
+    let k, j: number;
     for (; i < noOfRows; i++) {
       for (k = i; k < noOfRows; k++) {
         process.stdout.write(" ");

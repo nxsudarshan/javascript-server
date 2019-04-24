@@ -7,11 +7,7 @@ export default diamond = (noOfRows) => {
     console.log("Diamond");
     let i = 0;
     let space = noOfRows - 1;
-    let k: number;
-    let j: number;
-    let l: number;
-    let m: number;
-    let n: number;
+    let k, j, l, m, n: number;
     for (; i < noOfRows; i++) {
       for (k = i; k < noOfRows; k++) {
         process.stdout.write(" ");
