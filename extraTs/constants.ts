@@ -12,7 +12,7 @@ export const ROLE_HEAD_TRAINER = "head-trainer";
 
 export const users = [{
   traineeEmail: "trainee1@successive.tech",
-
+// tslint:disable-next-line: object-literal-sort-keys
   reviewerEmail: "reviewer1@successive.tech",
 },
 {
