@@ -1,8 +1,8 @@
-import { IUser } from '../interfaces';
-import { users } from '../constants';
-import * as checkHelper from './helpers';
+import { users } from "../constants";
+import { IUser } from "../interfaces";
+import * as checkHelper from "./helpers";
 
-export default (users: IUser[])=> {
+export default (users: IUser[]) => {
   const invalidUsers = {
     count: 0,
     users: [],
@@ -10,23 +10,20 @@ export default (users: IUser[])=> {
   const validUsers = {
     count: 0,
     users: [],
-  }
-
+  };
 
   users.forEach((value) => {
-    let { traineeEmail, reviewerEmail } = value;
+    const { traineeEmail, reviewerEmail } = value;
     return (
       checkHelper.validateEmail(traineeEmail) && checkHelper.validateEmail(reviewerEmail)) ?
       (validUsers.count++ , (validUsers.users.push(traineeEmail), validUsers.users.push(reviewerEmail + "\n"))) :
       (invalidUsers.count++ , (invalidUsers.users.push(traineeEmail), invalidUsers.users.push(reviewerEmail + "\n")));
-  })
+  });
   getResult(validUsers, invalidUsers);
 };
 
-
-
 function getResult(validUsers, invalidUsers) {
-  let notFound = "Email id not Found";
+  const notFound = "Email id not Found";
   return (
     validUsers.count > 0 ?
       (
@@ -42,5 +39,3 @@ function getResult(validUsers, invalidUsers) {
       console.log("Email id not found")
     );
 }
-
-

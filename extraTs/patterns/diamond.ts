@@ -1,22 +1,26 @@
-import { IPatterns } from '../interfaces'
+import { IPatterns } from "../interfaces";
 let diamond: IPatterns;
 
 export default diamond = (noOfRows) => {
-  if ((noOfRows >= 2 && noOfRows <= 10) && noOfRows != 0) {
+  if ((noOfRows >= 2 && noOfRows <= 10) && noOfRows !== 0) {
+    // tslint:disable-next-line: no-console
     console.log("Diamond");
-    console.log(" ");
     let i = 0;
     let space = noOfRows - 1;
-    let k, j, l, m, n;
+    let k: number;
+    let j: number;
+    let l: number;
+    let m: number;
+    let n: number;
     for (; i < noOfRows; i++) {
       for (k = i; k < noOfRows; k++) {
         process.stdout.write(" ");
       }
       space--;
       for (j = 1; j <= (2 * i) + 1; j++) {
-        process.stdout.write("*")
+        process.stdout.write("*");
       }
-      console.log(" ")
+      console.log(" ");
     }
     space = 1;
     for (l = 1; l <= noOfRows; l++) {
@@ -29,9 +33,7 @@ export default diamond = (noOfRows) => {
       }
       console.log(" ");
     }
-  }
-  else {
+  } else {
     console.log("Arguments must be in range 2 to 10  or Argument Required");
   }
-}
-
+};

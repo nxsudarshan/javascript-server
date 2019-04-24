@@ -1,12 +1,13 @@
-import { IPatterns } from '../interfaces'
-let equilateral: IPatterns
+import { IPatterns } from "../interfaces";
+let equilateral: IPatterns;
 export default equilateral = (noOfRows) => {
-  if (noOfRows >= 2 && noOfRows <= 10 && noOfRows != 0) {
+  if (noOfRows >= 2 && noOfRows <= 10 && noOfRows !== 0) {
     console.log("Equilateral");
     console.log(" ");
     let i = 0;
     let space = noOfRows - 1;
-    let k, j, l, m, n;
+    let k: number;
+    let j: number;
     for (; i < noOfRows; i++) {
       for (k = i; k < noOfRows; k++) {
         process.stdout.write(" ");
@@ -15,10 +16,9 @@ export default equilateral = (noOfRows) => {
       for (j = 1; j <= (2 * i) + 1; j++) {
         process.stdout.write("*");
       }
-      console.log(" ")
+      console.log(" ");
     }
-  }
-  else {
+  } else {
     console.log("Arguments must be in range 2 to 10 or Argument Required");
   }
-}
+};
