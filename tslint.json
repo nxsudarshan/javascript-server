@@ -8,7 +8,7 @@
       "no-console": [
         false
       ],
-      "no-shadowed-variable":[
+      "no-shadowed-variable": [
         false
       ]
     },
