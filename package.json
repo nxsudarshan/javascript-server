@@ -35,7 +35,7 @@
   "husky": {
     "hooks": {
       "pre-commit": "tslint --project .",
-      "pre-push": "npm run extra:ts",
+
       "...": "..."
     }
   },
