@@ -1,5 +1,5 @@
 import * as express from "express";
-import { config_env } from "./config/configuration";
+import { configenv } from "./config/configuration";
 // tslint:disable-next-line: ordered-imports
 import { IConfig } from "./config/IConfig";
 const app = express()
