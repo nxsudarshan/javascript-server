@@ -14,8 +14,7 @@ export class Server {
   constructor(configenv: IConfig) {
     this.PORT = configenv.PORT;
     this.NODE_ENV = configenv.NODE_ENV;
-    this.app= express();
-
+    this.app = express();
 
   }
   // tslint:disable-next-line: no-empty
@@ -28,7 +27,7 @@ export class Server {
     this.app.get("/health-check", (req, res) => {
       res.send("I am Ok!");
     });
-    this.app.post("/hello",(req, res) => {
+    this.app.post("/hello", (req, res) => {
       console.log(req.body);
       res.json(req.body);
     });
@@ -36,8 +35,6 @@ export class Server {
       res.status(404).send(notFoundRoute);
       next();
     });
-
-
     return this;
   }
   public run() {
