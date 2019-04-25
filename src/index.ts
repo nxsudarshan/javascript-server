@@ -3,4 +3,4 @@ import { Server } from "./Server";
 
 const obj = new Server(configenv);
 
-obj.bootstrap().setupRoutes().run();
+obj.bootstrap().run();
