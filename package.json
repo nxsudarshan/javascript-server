@@ -5,7 +5,7 @@
   "main": "index.js",
   "scripts": {
     "precompile": "rm -r ./dist",
-    "compile": "npx babel-node src",
+    "compile": "npx babel-node dist",
     "test": "echo \"Error: no test specified\" && exit 1",
     "extra:ts": "tsc-watch --project . --onSuccess \"npm run nodemon\"",
     "nodemon": "nodemon ./dist/src/index.js"
