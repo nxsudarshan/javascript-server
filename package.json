@@ -4,7 +4,8 @@
   "description": "for training",
   "main": "index.js",
   "scripts": {
-    "test1": "npx babel-node extra",
+    "preCompile": "rm -r ./dist",
+    "compile": "npx babel-node extra",
     "test": "echo \"Error: no test specified\" && exit 1",
     "extra:ts": "tsc-watch --project . --onSuccess \"npm run nodemon\"",
     "nodemon": "nodemon ./dist/index.js"
@@ -23,7 +24,18 @@
     "@babel/core": "^7.4.3",
     "@babel/node": "^7.2.2",
     "@babel/preset-env": "^7.4.3",
+    "@types/node": "^11.13.6",
+    "husky": "^1.3.1",
+    "inquirer": "^6.3.1",
+    "nodemon": "^1.18.11",
     "tsc-watch": "^2.1.2",
     "typescript": "^3.4.4"
+  },
+  "husky": {
+    "hooks": {
+      "pre-commit": "tslint --project .",
+      "pre-push": "npm run compile",
+      "...": "..."
+    }
   }
 }
