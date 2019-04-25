@@ -1,3 +1,4 @@
+import { errorHandler } from './../libs/routes/errorHandler';
 import * as bodyParser from "body-parser";
 import * as express from "express";
 import { notFoundRoute } from "./../libs/routes/notFoundRoute";
@@ -28,13 +29,14 @@ export class Server {
       res.send("I am Ok!");
     });
     this.app.post("/hello", (req, res) => {
-      console.log(req.body);
-      res.json(req.body);
+      try {
+        res.json(req.body);
+      } catch (error) {
+        res.send(errorHandler);
+      }
+
     });
-    this.app.use((req, res, next) => {
-      res.status(404).send(notFoundRoute);
-      next();
-    });
+    this.app.use(notFoundRoute)
     return this;
   }
   public run() {
