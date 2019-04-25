@@ -2,7 +2,7 @@ import * as express from "express";
 import { configenv } from "./config/configuration";
 // tslint:disable-next-line: ordered-imports
 import { IConfig } from "./config/IConfig";
-const app = express()
+const app = express();
 // tslint:disable-next-line: prefer-const
 let config: IConfig;
 export class Server {
@@ -23,6 +23,6 @@ export class Server {
     return this;
   }
   public run() {
-    app.listen(this.PORT, () => console.log(`Example app listening on port ${this.PORT}!`))
+    app.listen(this.PORT, () => console.log(`Example app listening on port ${this.PORT}!`));
   }
 }
