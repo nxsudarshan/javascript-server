@@ -12,4 +12,4 @@ export class Routes {
     console.log("Hello");
   }
 }
-let obj = new Routes();
+const obj = new Routes();
