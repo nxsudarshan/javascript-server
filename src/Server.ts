@@ -28,7 +28,10 @@ export class Server {
     this.app.get("/health-check", (req, res) => {
       res.send("I am Ok!");
     });
-    this.app.post("/para", (req, res) => {
+    this.app.get("/", (req, res) => {
+        res.json("Hello");
+    });
+    this.app.post("/", (req, res) => {
       try {
         res.json(req.body);
       } catch (error) {

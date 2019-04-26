@@ -40,6 +40,6 @@
   },
   "dependencies": {
     "express": "^4.16.4",
-    "@types/node":""
+    "@types/node": ""
   }
 }
