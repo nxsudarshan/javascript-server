@@ -47,6 +47,5 @@ export class Server {
   public initBodyParser() {
     this.app.use(bodyParser.urlencoded({ extended: true }));
     this.app.use(bodyParser.json());
-
   }
 }
