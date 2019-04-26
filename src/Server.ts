@@ -1,6 +1,6 @@
-import { errorHandler } from './../libs/routes/errorHandler';
 import * as bodyParser from "body-parser";
 import * as express from "express";
+import { errorHandler } from "./../libs/routes/errorHandler";
 import { notFoundRoute } from "./../libs/routes/notFoundRoute";
 // tslint:disable-next-line: ordered-imports
 import { IConfig } from "./config/IConfig";
@@ -28,15 +28,14 @@ export class Server {
     this.app.get("/health-check", (req, res) => {
       res.send("I am Ok!");
     });
-    this.app.post("/hello", (req, res) => {
+    this.app.post("/para", (req, res) => {
       try {
         res.json(req.body);
       } catch (error) {
         res.send(errorHandler);
       }
-
     });
-    this.app.use(notFoundRoute)
+    this.app.use(notFoundRoute);
     return this;
   }
   public run() {

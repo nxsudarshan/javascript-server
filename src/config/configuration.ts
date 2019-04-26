@@ -1,5 +1,4 @@
 import * as dotenv from "dotenv";
-import { Server } from "../Server";
 import { IConfig } from "./IConfig";
 dotenv.config();
 
