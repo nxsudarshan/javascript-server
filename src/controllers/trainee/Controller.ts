@@ -1,7 +1,7 @@
 import { Error, NextFunction, Request, Response } from "express";
-let result={
-  error:"asf",
-}
+const result = {
+  error: "asf",
+};
 class Controller {
   public get(req: Request, res: Response, next: NextFunction) {
     res.json(result);
@@ -10,5 +10,5 @@ class Controller {
     res.json(req.body);
   }
 }
-export const obj=new Controller();
+export const obj = new Controller();
 Object.freeze(obj);

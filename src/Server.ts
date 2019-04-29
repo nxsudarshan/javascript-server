@@ -1,6 +1,6 @@
 import * as bodyParser from "body-parser";
 import * as express from "express";
-import  Routes  from "../src/controllers/trainee/routes";
+import Routes from "../src/controllers/trainee/routes";
 import { errorHandler } from "./../libs/routes/errorHandler";
 import { notFoundRoute } from "./../libs/routes/notFoundRoute";
 // tslint:disable-next-line: ordered-imports
