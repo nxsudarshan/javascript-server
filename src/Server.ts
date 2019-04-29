@@ -24,10 +24,11 @@ export class Server {
   }
   public run() {
     try {
-      console.log("success")
+
       app.listen(this.PORT, () => console.log(`Example app listening on port ${this.PORT}!`));
+      return console.log("success");
     } catch (error) {
-      console.error(error)
+      return console.error(error);
     }
   }
 }
