@@ -16,7 +16,6 @@ export class Server {
     this.PORT = configenv.PORT;
     this.NODE_ENV = configenv.NODE_ENV;
     this.app = express();
-
   }
   // tslint:disable-next-line: no-empty
   public bootstrap() {
@@ -42,7 +41,13 @@ export class Server {
     return this;
   }
   public run() {
-    this.app.listen(this.PORT, () => console.log(`Example app listening on port ${this.PORT}!`));
+    
+    try {
+      app.listen(this.PORT, () => console.log(`Example app listening on port ${this.PORT}!`));
+      return console.log("success");
+    } catch (error) {
+      return console.error(error);
+    }
   }
   public initBodyParser() {
     this.app.use(bodyParser.urlencoded({ extended: true }));
