@@ -1,13 +1,8 @@
-import { NextFunction, Request, Response } from "express";
-import { router } from "express";
-// tslint:disable-next-line: import-spacing
-const response = {
-  para: "Some Response from TraineeController",
-};
-
-class TraineeRoutes {
-  public get(req: Request, res: Response, next: NextFunction) {
-    res.json(response);
+import { Error,NextFunction, Request, Response } from "express";
+class Controller {
+  public getTrainee(err:Error,req: Request, res: Response, next: NextFunction){
+    res.send("here")
   }
 }
-export default new TraineeRoutes();
+export const obj=new Controller();
+Object.freeze(obj);

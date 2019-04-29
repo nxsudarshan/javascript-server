@@ -4,39 +4,24 @@ import { errorHandler } from "./../libs/routes/errorHandler";
 import { notFoundRoute } from "./../libs/routes/notFoundRoute";
 // tslint:disable-next-line: ordered-imports
 import { IConfig } from "./config/IConfig";
-// const app = express();
-// tslint:disable-next-line: prefer-const
+import { Routes } from '../src/controllers/trainee/routes';
 let config: IConfig;
 export class Server {
   public PORT: number;
   public NODE_ENV: string;
-  public app;
-  // tslint:disable-next-line: variable-name
+  public app
   constructor(configenv: IConfig) {
     this.PORT = configenv.PORT;
     this.NODE_ENV = configenv.NODE_ENV;
     this.app = express();
-
   }
-  // tslint:disable-next-line: no-empty
   public bootstrap() {
     this.initBodyParser();
     this.setupRoutes();
     return this;
   }
   public setupRoutes() {
-    this.app.get("/health-check", (req, res) => {
-      res.send("I am Ok!");
-    });
-    this.app.get("/", (req, res) => {
-      try {
-        res.json(req.body);
-      } catch (error) {
-        res.send(errorHandler);
-      }
-
-    });
-    this.app.use(notFoundRoute);
+    this.app.use("/trainee",Routes);
     return this;
   }
   public run() {
@@ -45,6 +30,5 @@ export class Server {
   public initBodyParser() {
     this.app.use(bodyParser.urlencoded({ extended: true }));
     this.app.use(bodyParser.json());
-
   }
 }
