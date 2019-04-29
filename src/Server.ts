@@ -22,8 +22,8 @@ export class Server {
   }
   public setUpRoutes() {
     try {
-      this.app.use("/trainee", traineeRoutes);
-      this.app.use("/user", userRoutes);
+      this.app.use("/api/trainee", traineeRoutes);
+      this.app.use("/api/user", userRoutes);
     } catch (error) {
       throw new Error(String(errorHandler));
     }
