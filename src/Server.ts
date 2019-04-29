@@ -27,11 +27,29 @@ export class Server {
     } catch (error) {
       throw new Error(String(errorHandler));
     }
+    this.app.get("/health-check", (req, res) => {
+      res.send("I am Ok!");
+    });
+    this.app.get("/", (req, res) => {
+        res.json("Hello");
+    });
+    this.app.post("/", (req, res) => {
+      try {
+        res.json(req.body);
+      } catch (error) {
+        res.send(errorHandler);
+      }
+    });
     this.app.use(notFoundRoute);
     return this;
   }
   public run() {
-    this.app.listen(this.PORT, () => console.log(`Example app listening on port ${this.PORT}!`));
+    try {
+      this.app.listen(this.PORT, () => console.log(`Example app listening on port ${this.PORT}!`));
+      return console.log("success");
+    } catch (error) {
+      return console.error(error);
+    }
   }
   public initBodyParser() {
     this.app.use(bodyParser.urlencoded({ extended: true }));
