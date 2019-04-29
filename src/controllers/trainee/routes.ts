@@ -1,15 +1,6 @@
-import { NextFunction, Request, Response } from "express";
-
-export class Routes {
-  public static getInstances() {
-    if (!Routes.instance) {
-      Routes.instance = new Routes();
-    }
-  }
-  private static instance;
-
-  constructor() {
-    console.log("Hello");
-  }
-}
-const obj = new Routes();
+import { express } from "express";
+import traineeRouterController from "./Controller";
+// tslint:disable-next-line: no-unused-expression
+const router = express.Router;
+router.get("/", traineeRouterController.get);
+router.post("/post", traineeRouterController.post);
