@@ -1,10 +1,11 @@
 import * as bodyParser from "body-parser";
 import * as express from "express";
-import Routes from "../src/controllers/trainee/routes";
 import { errorHandler } from "./../libs/routes/errorHandler";
 import { notFoundRoute } from "./../libs/routes/notFoundRoute";
 // tslint:disable-next-line: ordered-imports
 import { IConfig } from "./config/IConfig";
+import { traineeRoutes, userRoutes } from "./router";
+
 export class Server {
   public PORT: number;
   public NODE_ENV: string;
@@ -20,7 +21,13 @@ export class Server {
     return this;
   }
   public setUpRoutes() {
-    this.app.use("/trainee", Routes);
+    try {
+      this.app.use("/trainee", traineeRoutes);
+      this.app.use("/user", userRoutes);
+    } catch (error) {
+      throw new Error(String(errorHandler));
+    }
+    this.app.use(notFoundRoute);
     return this;
   }
   public run() {
