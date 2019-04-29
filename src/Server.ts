@@ -1,15 +1,14 @@
 import * as bodyParser from "body-parser";
 import * as express from "express";
+import  Routes  from "../src/controllers/trainee/routes";
 import { errorHandler } from "./../libs/routes/errorHandler";
 import { notFoundRoute } from "./../libs/routes/notFoundRoute";
 // tslint:disable-next-line: ordered-imports
 import { IConfig } from "./config/IConfig";
-import { Routes } from '../src/controllers/trainee/routes';
-let config: IConfig;
 export class Server {
   public PORT: number;
   public NODE_ENV: string;
-  public app
+  public app;
   constructor(configenv: IConfig) {
     this.PORT = configenv.PORT;
     this.NODE_ENV = configenv.NODE_ENV;
@@ -17,11 +16,11 @@ export class Server {
   }
   public bootstrap() {
     this.initBodyParser();
-    this.setupRoutes();
+    this.setUpRoutes();
     return this;
   }
-  public setupRoutes() {
-    this.app.use("/trainee",Routes);
+  public setUpRoutes() {
+    this.app.use("/trainee", Routes);
     return this;
   }
   public run() {

@@ -1,7 +1,13 @@
-import { Error,NextFunction, Request, Response } from "express";
+import { Error, NextFunction, Request, Response } from "express";
+let result={
+  error:"asf",
+}
 class Controller {
-  public getTrainee(err:Error,req: Request, res: Response, next: NextFunction){
-    res.send("here")
+  public get(req: Request, res: Response, next: NextFunction) {
+    res.json(result);
+  }
+  public post(req: Request, res: Response, next: NextFunction) {
+    res.json(req.body);
   }
 }
 export const obj=new Controller();
