@@ -8,7 +8,7 @@ const list = {
   post: "post::http://localhost:9000/user/post",
   put: "put::http://locahost:9000/user/put",
   delete: "delete::http://locahost:9000/user/delete",
-}
+};
 class Controller {
   public get(req: Request, res: Response, next: NextFunction) {
     res.json(result);

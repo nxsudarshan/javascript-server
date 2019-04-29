@@ -1,6 +1,6 @@
 import { NextFunction, Request, Response } from "express";
 const result = {
-  data: "Fake Response from trainee get"
+  data: "Fake Response from trainee get",
 };
 const list = {
   availableLinks: "yes",
@@ -8,7 +8,7 @@ const list = {
   post: "post::http://localhost:9000/trainee/post",
   put: "put::http://locahost:9000/trainee/put",
   delete: "delete::http://locahost:9000/trainee/delete",
-}
+};
 class Controller {
   public get(req: Request, res: Response, next: NextFunction) {
     res.json(result);
