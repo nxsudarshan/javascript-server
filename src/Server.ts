@@ -1,34 +1,56 @@
+import * as bodyParser from "body-parser";
 import * as express from "express";
-import { configenv } from "./config/configuration";
+import { errorHandler } from "./../libs/routes/errorHandler";
+import { notFoundRoute } from "./../libs/routes/notFoundRoute";
 // tslint:disable-next-line: ordered-imports
 import { IConfig } from "./config/IConfig";
-const app = express();
+// const app = express();
 // tslint:disable-next-line: prefer-const
 let config: IConfig;
 export class Server {
   public PORT: number;
   public NODE_ENV: string;
+  public app;
   // tslint:disable-next-line: variable-name
-  constructor(config_env: IConfig) {
-    this.PORT = config_env.PORT;
-    this.NODE_ENV = config_env.NODE_ENV;
+  constructor(configenv: IConfig) {
+    this.PORT = configenv.PORT;
+    this.NODE_ENV = configenv.NODE_ENV;
+    this.app = express();
   }
   // tslint:disable-next-line: no-empty
   public bootstrap() {
+    this.initBodyParser();
     this.setupRoutes();
     return this;
   }
   public setupRoutes() {
-    app.get("/health-check", (req, res) => res.send("I am Ok!"));
+    this.app.get("/health-check", (req, res) => {
+      res.send("I am Ok!");
+    });
+    this.app.get("/", (req, res) => {
+        res.json("Hello");
+    });
+    this.app.post("/", (req, res) => {
+      try {
+        res.json(req.body);
+      } catch (error) {
+        res.send(errorHandler);
+      }
+    });
+    this.app.use(notFoundRoute);
     return this;
   }
   public run() {
+    
     try {
-
       app.listen(this.PORT, () => console.log(`Example app listening on port ${this.PORT}!`));
       return console.log("success");
     } catch (error) {
       return console.error(error);
     }
+  }
+  public initBodyParser() {
+    this.app.use(bodyParser.urlencoded({ extended: true }));
+    this.app.use(bodyParser.json());
   }
 }

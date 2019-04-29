@@ -4,11 +4,11 @@
   "description": "for training",
   "main": "index.js",
   "scripts": {
-    "preCompile": "rm -r ./dist",
-    "compile": "npx babel-node src",
+    "precompile": "rm -r ./dist",
+    "compile": "npx babel-node dist",
     "test": "echo \"Error: no test specified\" && exit 1",
     "extra:ts": "tsc-watch --project . --onSuccess \"npm run nodemon\"",
-    "nodemon": "nodemon ./dist/index.js"
+    "nodemon": "nodemon ./dist/src/index.js"
   },
   "repository": {
     "type": "git",
@@ -35,12 +35,11 @@
   "husky": {
     "hooks": {
       "pre-commit": "tslint --project .",
-
       "...": "..."
     }
   },
   "dependencies": {
-    "@types/node": "^11.13.7",
-    "express": "^4.16.4"
+    "express": "^4.16.4",
+    "@types/node": ""
   }
 }
