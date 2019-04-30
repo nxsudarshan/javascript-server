@@ -14,7 +14,7 @@ traineeRouter.put("/put", checkSchema({
   name: {
     in: ["body"],
     isLength: true,
-  }
+  },
 }), obj.put);
 traineeRouter.delete("/delete", obj.delete);
 export default traineeRouter;

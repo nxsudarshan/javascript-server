@@ -14,7 +14,7 @@ export const valid = {
       errorMessage: "name is required",
       negated: true,
     },
-    isLength:({ min: 3, max: undefined, negated: true })
+    isLength: ({ min: 3, max: undefined, negated: true }),
   },
   email: {
     in: ["body"],
