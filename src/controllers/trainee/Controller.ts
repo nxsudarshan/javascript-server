@@ -1,4 +1,5 @@
 import { NextFunction, Request, Response } from "express";
+import { validationResult } from "./routes";
 const result = {
   data: "Fake Response from trainee get",
 };
@@ -14,7 +15,11 @@ class Controller {
     res.json(result);
   }
   public post(req: Request, res: Response, next: NextFunction) {
-    res.json(req.body);
+    const result = validationResult(req);
+    if (!result.isEmpty()) {
+      return res.status(404).json({ errors: result.array() });
+    }
+    return res.json(req.body);
   }
   public put(req: Request, res: Response, next: NextFunction) {
     res.json("Trainee Put");
