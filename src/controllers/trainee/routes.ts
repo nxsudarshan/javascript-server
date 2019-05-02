@@ -1,3 +1,4 @@
+import { authMiddleWare } from './../../../libs/routes/authMoiddleWare';
 
 import { Router } from "express";
 import { checkSchema } from "express-validator/check";
@@ -11,4 +12,5 @@ traineeRouter.get("/get", validationHandler, obj.get);
 traineeRouter.post("/post", checkSchema(valid.create as any), validationHandler, obj.post);
 traineeRouter.put("/put", checkSchema(valid.update as any), validationHandler, obj.put);
 traineeRouter.delete("/delete", checkSchema(valid.delete as any), validationHandler, obj.delete);
+traineeRouter.post("/sign-in", authMiddleWare("getUsers", "all"));
 export default traineeRouter;
