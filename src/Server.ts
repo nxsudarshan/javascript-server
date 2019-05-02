@@ -4,7 +4,7 @@ import { errorHandler } from "./../libs/routes/errorHandler";
 import { notFoundRoute } from "./../libs/routes/notFoundRoute";
 // tslint:disable-next-line: ordered-imports
 import { IConfig } from "./config/IConfig";
-import { traineeRoutes, userRoutes } from "./router";
+import { routes } from "./router";
 
 export class Server {
   public PORT: number;
@@ -21,25 +21,14 @@ export class Server {
     return this;
   }
   public setUpRoutes() {
-    try {
-      this.app.use("/api/trainee", traineeRoutes);
-      this.app.use("/api/user", userRoutes);
-    } catch (error) {
-      throw new Error(String(errorHandler));
-    }
+    this.app.use("/api", routes);
     this.app.get("/health-check", (req, res) => {
       res.send("I am Ok!");
     });
     this.app.get("/", (req, res) => {
-        res.json("Hello");
+      res.json("Hello");
     });
-    this.app.post("/", (req, res) => {
-      try {
-        res.json(req.body);
-      } catch (error) {
-        res.send(errorHandler);
-      }
-    });
+    this.app.use(errorHandler);
     this.app.use(notFoundRoute);
     return this;
   }

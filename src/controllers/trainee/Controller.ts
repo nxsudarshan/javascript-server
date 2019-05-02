@@ -1,7 +1,14 @@
 import { NextFunction, Request, Response } from "express";
 import { validationResult } from "./routes";
 const result = {
-  data: "Fake Response from trainee get",
+  trainee_1: {
+    id: 12,
+    message: "Fake Response from trainee",
+  },
+  trainee_2: {
+    id: 13,
+    message: "Fake Response from trainee",
+  },
 };
 const list = {
   availableLinks: "yes",
@@ -15,20 +22,16 @@ class Controller {
     res.json(result);
   }
   public post(req: Request, res: Response, next: NextFunction) {
-    const result = validationResult(req);
-    if (!result.isEmpty()) {
-      return res.status(404).json({ errors: result.array() });
-    }
     return res.json(req.body);
   }
   public put(req: Request, res: Response, next: NextFunction) {
-    res.json("Trainee Put");
+    return res.json(req.body);
   }
   public delete(req: Request, res: Response, next: NextFunction) {
-    res.json("Trainee Delete");
+    return res.json(req.body);
   }
   public getList(req: Request, res: Response, next: NextFunction) {
-    res.json(list);
+    return res.json(list);
   }
 }
 export const obj = new Controller();
