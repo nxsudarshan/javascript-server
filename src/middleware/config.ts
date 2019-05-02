@@ -25,8 +25,8 @@ export default Object.freeze({
         options: { min: 4 },
       },
       matches: {
+        options: [/(\w+)$/],
         errorMessage: "Name should be in format",
-        options: "",
       },
     },
   },
@@ -43,7 +43,6 @@ export default Object.freeze({
     skip: {
       isInt: true,
       in: ["body"],
-      errorMessage: "Skip is invalid",
     },
     limit: {
       in: ["query"],
