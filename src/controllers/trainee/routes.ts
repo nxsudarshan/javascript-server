@@ -1,4 +1,4 @@
-import { authMiddleWare } from './../../../libs/routes/authMoiddleWare';
+import { authMiddleWare } from "./../../../libs/routes/authMoiddleWare";
 
 import { Router } from "express";
 import { checkSchema } from "express-validator/check";
