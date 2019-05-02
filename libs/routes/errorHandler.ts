@@ -6,6 +6,6 @@ const errorMessage = {
   timestamp: new Date(),
 };
 export let errorHandler = (req, res, next) => {
-  console.log(errorMessage);
+  return errorMessage;
   next();
 };

@@ -4,26 +4,29 @@ import { errorHandler } from "./../libs/routes/errorHandler";
 import { notFoundRoute } from "./../libs/routes/notFoundRoute";
 // tslint:disable-next-line: ordered-imports
 import { IConfig } from "./config/IConfig";
-// const app = express();
-// tslint:disable-next-line: prefer-const
-let config: IConfig;
+import { traineeRoutes, userRoutes } from "./router";
+
 export class Server {
   public PORT: number;
   public NODE_ENV: string;
   public app;
-  // tslint:disable-next-line: variable-name
   constructor(configenv: IConfig) {
     this.PORT = configenv.PORT;
     this.NODE_ENV = configenv.NODE_ENV;
     this.app = express();
   }
-  // tslint:disable-next-line: no-empty
   public bootstrap() {
     this.initBodyParser();
-    this.setupRoutes();
+    this.setUpRoutes();
     return this;
   }
-  public setupRoutes() {
+  public setUpRoutes() {
+    try {
+      this.app.use("/api/trainee", traineeRoutes);
+      this.app.use("/api/user", userRoutes);
+    } catch (error) {
+      throw new Error(String(errorHandler));
+    }
     this.app.get("/health-check", (req, res) => {
       res.send("I am Ok!");
     });
@@ -41,9 +44,8 @@ export class Server {
     return this;
   }
   public run() {
-    
     try {
-      app.listen(this.PORT, () => console.log(`Example app listening on port ${this.PORT}!`));
+      this.app.listen(this.PORT, () => console.log(`Example app listening on port ${this.PORT}!`));
       return console.log("success");
     } catch (error) {
       return console.error(error);
