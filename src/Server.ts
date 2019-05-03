@@ -1,7 +1,9 @@
 import * as bodyParser from "body-parser";
 import * as express from "express";
+import { Database } from "./../libs/Database";
 import { errorHandler } from "./../libs/routes/errorHandler";
 import { notFoundRoute } from "./../libs/routes/notFoundRoute";
+import { configenv } from "./config/configuration";
 // tslint:disable-next-line: ordered-imports
 import { IConfig } from "./config/IConfig";
 import { routes } from "./router";
@@ -33,12 +35,12 @@ export class Server {
     return this;
   }
   public run() {
-    try {
+    Database.open({ mongoUri: configenv.dbLink }).then(() => {
       this.app.listen(this.PORT, () => console.log(`Example app listening on port ${this.PORT}!`));
-      return console.log("success");
-    } catch (error) {
-      return console.error(error);
-    }
+      console.log("Success");
+    }).catch((error) => {
+      console.log("errors:" + error);
+    });
   }
   public initBodyParser() {
     this.app.use(bodyParser.urlencoded({ extended: true }));
