@@ -7,7 +7,7 @@ const config_env: IConfig = {
   PORT: Number(process.env.PORT),
   NODE_ENV: String(process.env.NODE_ENV),
   KEY: String(process.env.KEY),
-  dbLink: String(process.env.dbLink),
+  MONGO_URL: String(process.env.MONGO_URL),
 };
 
 export let configenv = Object.freeze(config_env);
