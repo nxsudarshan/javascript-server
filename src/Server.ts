@@ -35,12 +35,22 @@ export class Server {
     return this;
   }
   public run() {
+<<<<<<< HEAD
     Database.open({ mongoUri: configenv.dbLink }).then(() => {
       this.app.listen(this.PORT, () => console.log(`Example app listening on port ${this.PORT}!`));
       console.log("Success");
     }).catch((error) => {
       console.log("errors:" + error);
     });
+=======
+
+    try {
+      this.app.listen(this.PORT, () => console.log(`Example app listening on port ${this.PORT}!`));
+      return console.log("success");
+    } catch (error) {
+      return console.error(error);
+    }
+>>>>>>> develop
   }
   public initBodyParser() {
     this.app.use(bodyParser.urlencoded({ extended: true }));
