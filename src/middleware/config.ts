@@ -32,7 +32,7 @@ export default Object.freeze({
   },
   delete: {
     id: {
-      in: ["body"],
+      in: ["params", "body"],
       isEmpty: {
         errorMessage: "Id is required",
         negated: true,
@@ -52,7 +52,7 @@ export default Object.freeze({
   },
   update: {
     id: {
-      in: ["body"],
+      in: ["params"],
       isEmpty: {
         errorMessage: "Id is required",
         negated: true,

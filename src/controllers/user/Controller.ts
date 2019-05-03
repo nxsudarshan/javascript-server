@@ -18,16 +18,16 @@ const list = {
 };
 class Controller {
   public get(req: Request, res: Response, next: NextFunction) {
-    res.json(result);
+    return res.json(result);
   }
   public post(req: Request, res: Response, next: NextFunction) {
     return res.json(req.body);
   }
   public put(req: Request, res: Response, next: NextFunction) {
-    return res.json(req.body);
+    return res.status(200).json({ message: "Record Updated" });
   }
   public delete(req: Request, res: Response, next: NextFunction) {
-    return res.json(req.body);
+    return res.status(200).json({ message: "Record Deleted" });
   }
   public getList(req: Request, res: Response, next: NextFunction) {
     return res.json(list);
