@@ -41,9 +41,9 @@ export class Server {
     return this;
   }
   public run() {
-    
+
     try {
-      app.listen(this.PORT, () => console.log(`Example app listening on port ${this.PORT}!`));
+      this.app.listen(this.PORT, () => console.log(`Example app listening on port ${this.PORT}!`));
       return console.log("success");
     } catch (error) {
       return console.error(error);
