@@ -1,6 +1,13 @@
 import { NextFunction, Request, Response } from "express";
 const result = {
-  data: "Fake Response from User get",
+  user_1: {
+    id: 10,
+    message: "Fake Response from User",
+  },
+  trainee_2: {
+    id: 11,
+    message: "Fake Response from User",
+  },
 };
 const list = {
   availableLinks: "yes",
@@ -11,19 +18,19 @@ const list = {
 };
 class Controller {
   public get(req: Request, res: Response, next: NextFunction) {
-    res.json(result);
+    return res.json(result);
   }
   public post(req: Request, res: Response, next: NextFunction) {
-    res.json(req.body);
+    return res.json(req.body);
   }
   public put(req: Request, res: Response, next: NextFunction) {
-    res.json("User Put");
+    return res.status(200).json({ message: "Record Updated" });
   }
   public delete(req: Request, res: Response, next: NextFunction) {
-    res.json("User Delete");
+    return res.status(200).json({ message: "Record Deleted" });
   }
   public getList(req: Request, res: Response, next: NextFunction) {
-    res.json(list);
+    return res.json(list);
   }
 }
 export const obj = new Controller();

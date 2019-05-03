@@ -1,9 +1,12 @@
 import { Router } from "express";
+import { checkSchema } from "express-validator/check";
+import { validationHandler } from "../../middleware/validationHandler";
+import { default as valid } from "./../../middleware/config";
 import { obj } from "./Controller";
 const userRouter: Router = Router();
-userRouter.get("/", obj.getList);
-userRouter.get("/get", obj.get);
-userRouter.post("/post", obj.post);
-userRouter.put("/put", obj.put);
-userRouter.delete("/delete", obj.delete);
+userRouter.get("/", validationHandler, obj.getList);
+userRouter.get("/get", validationHandler, obj.get);
+userRouter.post("/", checkSchema(valid.create as any), validationHandler, obj.post);
+userRouter.put("/:id", checkSchema(valid.update as any), validationHandler, obj.put);
+userRouter.delete("/:id", checkSchema(valid.delete as any), validationHandler, obj.delete);
 export default userRouter;
