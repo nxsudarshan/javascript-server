@@ -25,14 +25,14 @@ export default Object.freeze({
         options: { min: 4 },
       },
       matches: {
+        options: [/(\w+)$/],
         errorMessage: "Name should be in format",
-        options: "",
       },
     },
   },
   delete: {
     id: {
-      in: ["body"],
+      in: ["params", "body"],
       isEmpty: {
         errorMessage: "Id is required",
         negated: true,
@@ -43,7 +43,6 @@ export default Object.freeze({
     skip: {
       isInt: true,
       in: ["body"],
-      errorMessage: "Skip is invalid",
     },
     limit: {
       in: ["query"],
@@ -53,7 +52,7 @@ export default Object.freeze({
   },
   update: {
     id: {
-      in: ["body"],
+      in: ["params"],
       isEmpty: {
         errorMessage: "Id is required",
         negated: true,
