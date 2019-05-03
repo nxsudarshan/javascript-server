@@ -10,6 +10,7 @@ export const authMiddleWare = (mo, permissionType) => (req, res, next) => {
   }
   const userDetails = jwt.verify(token, configenv.KEY);
   return check(mo, userDetails.role, permissionType) ?
-    res.status(200).json({ status: 200, message: "Authorized User" }) :
-    res.status(403).json({ status: 403, error: "Unauthorized User" });
+    res.status(200).json({ status: 200, message: "Authorized User", timestamp: new Date() }) :
+    res.status(403).json({ status: 403, error: "Unauthorized User", timestamp: new Date() });
+
 };
