@@ -1,5 +1,6 @@
 import { Router } from "express";
 import { checkSchema } from "express-validator/check";
+import { authMiddleWare } from "../../../libs/routes/authMoiddleWare";
 import { validationHandler } from "../../middleware/validationHandler";
 import { default as valid } from "./../../middleware/config";
 import { obj } from "./Controller";

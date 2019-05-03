@@ -1,3 +1,4 @@
+import { authMiddleWare } from "./../../../libs/routes/authMoiddleWare";
 
 import { Router } from "express";
 import { checkSchema } from "express-validator/check";
@@ -8,7 +9,9 @@ import { obj } from "./Controller";
 const traineeRouter: Router = Router();
 traineeRouter.get("/", validationHandler, obj.getList);
 traineeRouter.get("/get", validationHandler, obj.get);
+traineeRouter.post("/sign-in", authMiddleWare("getUsers", "all"));
 traineeRouter.post("/", checkSchema(valid.create as any), validationHandler, obj.post);
 traineeRouter.put("/:id", checkSchema(valid.update as any), validationHandler, obj.put);
 traineeRouter.delete("/:id", checkSchema(valid.delete as any), validationHandler, obj.delete);
+
 export default traineeRouter;
