@@ -1,5 +1,7 @@
-export interface IUserModel {
-  eMail: string;
-  fName: string;
-  lName: string;
+import * as mongoose from "mongoose";
+export interface IUserModel extends mongoose.Document {
+  _id: any;
+  name: String;
+  email: String;
+  createdAt: any;
 }
