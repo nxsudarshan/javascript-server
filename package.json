@@ -4,9 +4,8 @@
   "description": "for training",
   "main": "index.js",
   "scripts": {
-    "precompile": "rm -r ./dist",
-    "compile": "npx babel-node src",
-    "test": "echo \"Error: no test specified\" && exit 1",
+    "precompile": "rm -r ./dist || tslint --fix --project .",
+    "compile": "npm run extra:ts",
     "extra:ts": "tsc-watch --project . --onSuccess \"npm run nodemon\"",
     "nodemon": "nodemon ./dist/src/index.js"
   },
@@ -43,7 +42,8 @@
     }
   },
   "dependencies": {
+    "@types/mongoose": "^5.3.27",
     "express": "^4.16.4",
-    "@types/node": ""
+    "mongoose": "^5.5.5"
   }
 }
