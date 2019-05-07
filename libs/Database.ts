@@ -11,9 +11,7 @@ export class Database {
         reject(error);
       });
       mongoose.connection.on("connected", (result) => {
-        if (result === 0) {
           seedData();
-        }
         resolve();
       });
     });
