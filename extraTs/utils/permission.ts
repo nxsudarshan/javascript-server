@@ -21,7 +21,6 @@ const permission = {
   },
 };
 export default hasPermission = (module, role, permissionType) => {
-  console.log(module, role, permissionType);
   return (permission[module] && permission[module][permissionType].indexOf(role) !== -1
     || permission[module][PERMISSION_ALL].indexOf(role) !== -1);
 };
