@@ -6,14 +6,16 @@ import { default as UserRepository } from "../../src/repositories/user/UserRepos
 export const authMiddleWare = (mo, permissionType) => (req, res, next) => {
   const token = req.headers.authorization;
   if (!token) {
-    res.status(403).json({ message: "Unauthorized access", status: 422, hint: "You need to provide Token to access" });
+    res.status(403).json({ message: "Unauthorized access", status: 403, hint: "You need to provide Token to access" });
   }
   const userDetails = jwt.verify(token, configenv.KEY);
   if (!userDetails) {
-    return (check(mo, userDetails.role, permissionType) ?
-      res.status(200).json({ status: 200, message: "Authorized User", timestamp: new Date() }) :
-      res.status(403).json({ status: 403, error: "Unauthorized User", timestamp: new Date() }));
+    next({ error: "Token doesn't have emailid and id" });
   }
+  if (!check(mo, userDetails.role, permissionType)) {
+    next({ status: 403, error: "Unauthorized User", timestamp: new Date() });
+  }
+  next({ status: 200, message: "User Authorized to access it" });
 };
 
 export const authMiddleWareToUser = (req, res, next) => {

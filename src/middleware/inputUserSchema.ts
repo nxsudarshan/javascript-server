@@ -1,3 +1,4 @@
+import * as print2 from "../../extraTs/utils/index";
 export default Object.freeze({
   createUser: {
     id: {
@@ -34,6 +35,13 @@ export default Object.freeze({
       isEmpty: {
         errorMessage: "Email id is required",
         negated: true,
+      },
+      options: {
+        custom: {
+          options: (value) => {
+            return  print2.checkEmailValidate(value);
+          },
+        },
       },
       isLength: {
         errorMessage: "Email id should be 7 character long",
