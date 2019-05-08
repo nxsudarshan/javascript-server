@@ -1,5 +1,5 @@
 import * as mongoose from "mongoose";
-import { default as UserModel } from "./UserModel";
+import { IUserModel } from "./IUserModel";
 class UserRepository {
   public static getObjectId() {
     return mongoose.Types.ObjectId();
