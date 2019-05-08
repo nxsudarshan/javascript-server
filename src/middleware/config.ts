@@ -42,8 +42,7 @@ export default Object.freeze({
   get: {
     skip: {
       isInt: true,
-      in: ["query"],
-      errorMessage: "Skip is invalid",
+      in: ["body"],
     },
     limit: {
       in: ["query"],

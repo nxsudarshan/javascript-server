@@ -1,7 +1,7 @@
 import * as mongoose from "mongoose";
+import { default as seedData } from "./seedData";
 export class Database {
   public static open({ mongoUri }) {
-    console.log(mongoUri);
     return new Promise((resolve, reject) => {
       const options = {
 
@@ -11,6 +11,7 @@ export class Database {
         reject(error);
       });
       mongoose.connection.on("connected", (result) => {
+          seedData();
         resolve();
       });
     });
