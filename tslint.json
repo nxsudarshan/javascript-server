@@ -1,22 +1,28 @@
 {
-    "defaultSeverity": "error",
-    "extends": [
-        "tslint:recommended"
+  "defaultSeverity": "error",
+  "extends": [
+    "tslint:recommended"
+  ],
+  "jsRules": {},
+  "rules": {
+    "no-console": [
+      false
     ],
-    "jsRules": {},
-    "rules": {
-      "no-console": [
-        false
-      ],
-      "no-shadowed-variable": [
-        false
-      ],
-      "one-variable-per-declaration":[
-        false
-      ],
-      "object-literal-sort-keys":[
-        false
-      ]
-    },
-    "rulesDirectory": []
+    "no-shadowed-variable": [
+      false
+    ],
+    "one-variable-per-declaration": [
+      false
+    ],
+    "object-literal-sort-keys": [
+      false
+    ],
+    "ban-types": [
+      false
+    ],
+    "interface-name": [
+      false
+    ]
+  },
+  "rulesDirectory": []
 }

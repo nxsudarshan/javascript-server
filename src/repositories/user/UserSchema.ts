@@ -1,9 +1,7 @@
 import * as mongoose from "mongoose";
-// let Schema = mongoose.Schema;
 export const userSchema = new mongoose.Schema({
   _id: mongoose.Schema.Types.ObjectId,
-  fName: String,
-  lName: String,
-  eMail: String,
+  name: String,
+  email: { type: String, unique: true, required: true },
   createdAt: { type: Date, default: Date.now },
 });

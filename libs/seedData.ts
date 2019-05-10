@@ -1,6 +1,10 @@
 import UserRepository from "../src/repositories/user/UserRepository";
 import { userSchema } from "../src/repositories/user/UserSchema";
+const repositoryObject = new UserRepository();
 export default () => {
-  const repositoryObject = new UserRepository();
-  repositoryObject.create({ fName: "S", lName: "G", eMail: "sudarshangonewar@gmail.com" });
+  repositoryObject.count().then((res) => {
+    if (res === 0) {
+      repositoryObject.create({ name: "S", email: "sudarshangonewar@gmail.com" });
+    }
+  });
 };

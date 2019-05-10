@@ -1,11 +1,10 @@
 import * as mongoose from "mongoose";
-import { IUserModel } from "./IUserModel";
 import { default as UserModel } from "./UserModel";
 class UserRepository {
   public static getObjectId() {
     return mongoose.Types.ObjectId();
   }
-  public create(data: IUserModel) {
+  public create(data) {
     const id = UserRepository.getObjectId();
     const model = new UserModel({
       _id: id,
@@ -13,17 +12,11 @@ class UserRepository {
     });
     return model.save();
   }
-  // public update(data: IUserModel) {
-  //   const id = UserRepository.getObjectId();
-  //   let model = new UserModel({
-  //     _id: id,
-  //     ...data
-  //   });
-  //   return model.update({}, { $set: { _id: id, ...data } });
-  // }
-  // public delete(data: IUserModel) {
-
-  // }
-
+  public count(query: any = {}) {
+    return UserModel.countDocuments(query);
+  }
+  public getUserDetails(query: any) {
+    return UserModel.find().where(query);
+  }
 }
 export default UserRepository;

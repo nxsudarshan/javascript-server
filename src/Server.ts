@@ -36,6 +36,7 @@ export class Server {
   }
   public run() {
     Database.open({ mongoUri: configenv.MONGO_URL }).then(() => {
+      console.log("Database seed data");
       this.app.listen(this.PORT, () => console.log(`Example app listening on port ${this.PORT}!`));
       console.log("Success");
     }).catch((error) => {

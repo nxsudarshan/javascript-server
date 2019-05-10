@@ -1,4 +1,8 @@
 import { NextFunction, Request, Response } from "express";
+import * as jwt from "jsonwebtoken";
+import { configenv } from "../../config/configuration";
+import UserModel from "../../repositories/user/UserModel";
+import UserRepository from "../../repositories/user/UserRepository";
 const result = {
   user_1: {
     id: 10,
@@ -31,6 +35,35 @@ class Controller {
   }
   public getList(req: Request, res: Response, next: NextFunction) {
     return res.json(list);
+  }
+  public createUser(req: Request, res: Response, next: NextFunction) {
+    const userDetails = req.body;
+    const repository = new UserRepository();
+    repository.create(userDetails).then((result) => {
+      res.status(200).json({ response: "User Created Successfully" });
+    }).catch((err) => {
+      next({ error: "User Already exists" });
+    });
+  }
+  public createToken(req: Request, res: Response, next: NextFunction) {
+    const { id, email } = req.body;
+    const token = jwt.sign({ id, email }, configenv.KEY, {
+      expiresIn: 86400,
+    });
+    return res.status(200).json(token);
+  }
+  public verifyToken(req: Request, res: Response, next: NextFunction) {
+    return res.status(200);
+  }
+  public getSingleUser(req: Request, res: Response, next: NextFunction) {
+    const userData = req.user;
+    const repository = new UserRepository();
+    const { email, id } = userData;
+    repository.getUserDetails({ _id: id, email }).then((result) => {
+      res.status(200).json(result);
+    }).catch((err) => {
+      res.status(422).json({ error: "Error in Database" });
+    });
   }
 }
 export const obj = new Controller();
