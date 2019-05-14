@@ -39,15 +39,15 @@ class Controller {
   public createUser(req: Request, res: Response, next: NextFunction) {
     const userDetails = req.body;
     const repository = new UserRepository();
-    repository.create(userDetails).then((result) => {
+    repository.insert(userDetails).then((result) => {
       res.status(200).json({ response: "User Created Successfully" });
     }).catch((err) => {
-      next({ error: "User Already exists" });
+      next({ error: "User Already Exists" });
     });
   }
   public createToken(req: Request, res: Response, next: NextFunction) {
-    const { id, email } = req.body;
-    const token = jwt.sign({ id, email }, configenv.KEY, {
+    const { id, email, role } = req.body;
+    const token = jwt.sign({ id, email, role}, configenv.KEY, {
       expiresIn: 86400,
     });
     return res.status(200).json(token);

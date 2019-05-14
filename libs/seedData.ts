@@ -1,10 +1,26 @@
 import UserRepository from "../src/repositories/user/UserRepository";
-import { userSchema } from "../src/repositories/user/UserSchema";
 const repositoryObject = new UserRepository();
+const firstRecords = [
+  {
+    _id: UserRepository.generateObjectId(),
+    sub: "Learn and Implement",
+    name: "Trainee",
+    email: "trainee@successive.tech",
+    role: "trainee",
+  },
+  {
+    _id: UserRepository.generateObjectId(),
+    sub: "Learn and Implement",
+    name: "Head Trainer",
+    email: "head.trainer@successive.tech",
+    role: "head-trainer",
+  },
+];
 export default () => {
   repositoryObject.count().then((res) => {
     if (res === 0) {
-      repositoryObject.create({ name: "S", email: "sudarshangonewar@gmail.com" });
+      repositoryObject.insert(firstRecords);
+      console.log("Database seed data first time");
     }
   });
 };
