@@ -1,5 +1,6 @@
 
 import * as mongoose from "mongoose";
+import { IVersionableModel } from "./IVersionableModel";
 export class VersionableSchema extends mongoose.Schema {
   constructor(baseSchema, options) {
     const versionableSchema = Object.assign({

@@ -12,18 +12,9 @@ export class VersionableRepository {
     return this.modelObj.create(data);
   }
   public count(query: any = {}) {
-    return this.modelObj.estimatedDocumentCount(query);
-  }
-  public updateById(id, data) {
-    return this.modelObj.findByIdAndUpdate(id, data);
-  }
-  public findOneRecord(data) {
-    return this.modelObj.findOne(data);
-  }
-  public findOneAndDelete(conditions) {
-    return this.modelObj.findOneAndDelete(conditions);
+    return this.modelObj.countDocuments(query);
   }
   public getUserDetails(query: any) {
-    return this.modelObj.find().where(query);
+    return this.modelObj.findOne(query);
   }
 }
