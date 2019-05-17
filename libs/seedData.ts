@@ -22,10 +22,9 @@ export default async () => {
       password: await bcrypt.hash("password@12345", configenv.SALT),
     },
   ];
-  repositoryObject.count().then((res) => {
-    if (res === 0) {
-      repositoryObject.insert(firstRecords);
-      console.log("Database seed data first time");
-    }
-  });
+  const res = await repositoryObject.count();
+  if (res === 0) {
+    repositoryObject.insert(firstRecords);
+    console.log("Database seed data first time");
+  }
 };

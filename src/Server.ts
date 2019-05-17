@@ -34,13 +34,10 @@ export class Server {
     this.app.use(notFoundRoute);
     return this;
   }
-  public run() {
-    Database.open({ mongoUri: configenv.MONGO_URL }).then(() => {
-      console.log("Database Connected Successfully");
-      this.app.listen(this.PORT, () => console.log(`Example app listening on port ${this.PORT}!`));
-    }).catch((error) => {
-      console.log("errors:" + error);
-    });
+  public async run() {
+    await Database.open({ mongoUri: configenv.MONGO_URL });
+    console.log("Database Connected Successfully");
+    this.app.listen(this.PORT, () => console.log(`Example app listening on port ${this.PORT}!`));
   }
   public initBodyParser() {
     this.app.use(bodyParser.urlencoded({ extended: true }));
