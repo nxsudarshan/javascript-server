@@ -1,30 +1,26 @@
-export default Object.freeze({
-  tokenCreate: {
-    id: {
-      isAlphanumeric: true,
-      in: ["body"],
-      isEmpty: {
-        errorMessage: "Id is Required",
-        negated: true,
-      },
-    },
+import { validateEmail } from "../../extraTs/utils/helpers";
+export const sign_in_schema = Object.freeze({
+  sign_in: {
     email: {
       in: ["body"],
-      isLength: {
-        errorMessage: "email id should be 7 character long",
-        options: { min: 7 },
-      },
       isEmpty: {
-        errorMessage: "email id is Required",
+        errorMessage: "Email id required",
+        negated: true,
+      },
+      custom: {
+        options: (value) => {
+          return validateEmail(value);
+        },
+        errorMessage: "Invalid email",
+      },
+    },
+    password: {
+      in: ["body"],
+      isEmpty: {
+        errorMessage: "Password is required",
         negated: true,
       },
     },
   },
-  getToken: {
-    in: ["params"],
-    isEmpty: {
-      errorMessage: "Token is Required",
-      negated: true,
-    },
-  },
+
 });

@@ -1,3 +1,4 @@
+import * as bcrypt from "bcrypt";
 import { NextFunction, Request, Response } from "express";
 import * as jwt from "jsonwebtoken";
 import { configenv } from "../../config/configuration";
@@ -22,10 +23,10 @@ const list = {
 };
 class Controller {
   public get(req: Request, res: Response, next: NextFunction) {
-    return res.json(result);
+    return res.status(200).json(result);
   }
   public post(req: Request, res: Response, next: NextFunction) {
-    return res.json(req.body);
+    return res.status(200).json(req.body);
   }
   public put(req: Request, res: Response, next: NextFunction) {
     return res.status(200).json({ message: "Record Updated" });
@@ -36,34 +37,35 @@ class Controller {
   public getList(req: Request, res: Response, next: NextFunction) {
     return res.json(list);
   }
-  public createUser(req: Request, res: Response, next: NextFunction) {
-    const userDetails = req.body;
-    const repository = new UserRepository();
-    repository.insert(userDetails).then((result) => {
-      res.status(200).json({ response: "User Created Successfully" });
-    }).catch((err) => {
-      next({ error: "User Already Exists" });
-    });
-  }
-  public createToken(req: Request, res: Response, next: NextFunction) {
-    const { id, email, role } = req.body;
-    const token = jwt.sign({ id, email, role}, configenv.KEY, {
-      expiresIn: 86400,
-    });
-    return res.status(200).json(token);
-  }
-  public verifyToken(req: Request, res: Response, next: NextFunction) {
-    return res.status(200);
-  }
-  public getSingleUser(req: Request, res: Response, next: NextFunction) {
-    const userData = req.user;
-    const repository = new UserRepository();
-    const { email, id } = userData;
-    repository.getUserDetails({ _id: id, email }).then((result) => {
-      res.status(200).json(result);
-    }).catch((err) => {
-      res.status(422).json({ error: "Error in Database" });
-    });
+  public async signIn(req: Request, res: Response, next: NextFunction) {
+    if (!req.body) {
+      next({ error: "In body Email & password required" });
+    }
+    const { email, password } = req.body;
+    const userRepository = new UserRepository();
+    const userDetails = await userRepository.getUserDetails({ email });
+    if (!userDetails) {
+      next({
+        status: 422,
+        message: "Email id & password is incorrect",
+      });
+    }
+
+    try {
+      const isMatch = await bcrypt.compare(password, userDetails.password);
+      if (isMatch) {
+        const userEmail = userDetails.email;
+        const userId = userDetails._id;
+        const token = jwt.sign({ userEmail, userId }, configenv.KEY, {
+          expiresIn: 86400,
+        });
+        return res.status(200).json({ token });
+      }
+      next({ status: 422, message: "Password is incorrect" });
+    } catch (error) {
+      next(error);
+    }
+
   }
 }
 export const obj = new Controller();

@@ -5,6 +5,9 @@
   ],
   "jsRules": {},
   "rules": {
+    "variable-name": [
+      false
+    ],
     "no-console": [
       false
     ],

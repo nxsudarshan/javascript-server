@@ -5,5 +5,4 @@ export function notFoundRoute(req, res, next) {
     message: "File or Page not found",
   };
   res.status(404).send(result);
-  next();
 }

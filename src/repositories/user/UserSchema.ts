@@ -6,6 +6,7 @@ export default class UserSchema extends VersionableSchema {
       email: { type: String, unique: true, required: true },
       role: String,
       sub: String,
+      password: String,
     };
     const options = {
 

@@ -8,6 +8,7 @@ const config_env: IConfig = {
   NODE_ENV: String(process.env.NODE_ENV),
   KEY: String(process.env.KEY),
   MONGO_URL: String(process.env.MONGO_URL),
+  SALT: Number(process.env.SALT),
 };
 
 export let configenv = Object.freeze(config_env);

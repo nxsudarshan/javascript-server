@@ -3,4 +3,5 @@ export interface IConfig {
   NODE_ENV: string;
   KEY: string;
   MONGO_URL: string;
+  SALT: any;
 }
