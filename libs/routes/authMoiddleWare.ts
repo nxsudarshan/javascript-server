@@ -11,12 +11,17 @@ export const authMiddleWare = (moduleName, permissionType) => async (req, res, n
   const getUsersDetails = jwt.verify(token, configenv.KEY);
   const { userEmail, userId } = getUsersDetails;
   const userRepository = new UserRepository();
-  const isFound = await userRepository.getUserDetails({ _id: userId, email: userEmail });
-  if (!isFound) {
-    next({ error: "User is not exists in the database" });
+  try {
+    const isFound = await userRepository.getUserDetails({ _id: userId, email: userEmail });
+    if (!isFound) {
+      next({ error: "User is not exists in the database" });
+    }
+    if (!check(moduleName, isFound.role, permissionType)) {
+      next({ status: 422, error: "Unauthorized user", timestamp: new Date() });
+    }
+    next();
+  } catch (error) {
+    next(error);
   }
-  if (!check(moduleName, isFound.role, permissionType)) {
-    next({ status: 422, error: "Unauthorized user", timestamp: new Date() });
-  }
-  next();
+
 };

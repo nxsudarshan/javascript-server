@@ -35,9 +35,13 @@ export class Server {
     return this;
   }
   public async run() {
-    await Database.open({ mongoUri: configenv.MONGO_URL });
-    console.log("Database Connected Successfully");
-    this.app.listen(this.PORT, () => console.log(`Example app listening on port ${this.PORT}!`));
+    try {
+      await Database.open({ mongoUri: configenv.MONGO_URL });
+      console.log("Database Connected Successfully");
+      this.app.listen(this.PORT, () => console.log(`Example app listening on port ${this.PORT}!`));
+    } catch (error) {
+      console.log(error);
+    }
   }
   public initBodyParser() {
     this.app.use(bodyParser.urlencoded({ extended: true }));

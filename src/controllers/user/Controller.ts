@@ -50,16 +50,22 @@ class Controller {
         message: "Email id & password is incorrect",
       });
     }
-    const isMatch = await bcrypt.compare(password, userDetails.password);
-    if (isMatch) {
-      const userEmail = userDetails.email;
-      const userId = userDetails._id;
-      const token = jwt.sign({ userEmail, userId }, configenv.KEY, {
-        expiresIn: 86400,
-      });
-      return res.status(200).json({ token });
+
+    try {
+      const isMatch = await bcrypt.compare(password, userDetails.password);
+      if (isMatch) {
+        const userEmail = userDetails.email;
+        const userId = userDetails._id;
+        const token = jwt.sign({ userEmail, userId }, configenv.KEY, {
+          expiresIn: 86400,
+        });
+        return res.status(200).json({ token });
+      }
+      next({ status: 422, message: "Password is incorrect" });
+    } catch (error) {
+      next(error);
     }
-    next({ status: 422, message: "Password is incorrect" });
+
   }
 }
 export const obj = new Controller();
